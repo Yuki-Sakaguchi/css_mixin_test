@@ -97,6 +97,7 @@ $BP_S: 480px;  // SP
 ======================================== */
 %box {
     display: block;
+    float: left;
     width: 100px;
     height: 100px;
     margin: 10px;
@@ -133,6 +134,14 @@ $BP_S: 480px;  // SP
     @include mq-mb {
         background-color: blue;
     }
+}
+
+.box-wrapper {
+    @include clearfix();
+}
+
+.list-wrapper {
+    @include clearfix();
 }
 
 

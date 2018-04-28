@@ -3,6 +3,7 @@
 ======================================== */
 .box, .box--device {
   display: block;
+  float: left;
   width: 100px;
   height: 100px;
   margin: 10px;
@@ -41,6 +42,18 @@
   .box--device {
     background-color: blue;
   }
+}
+
+.box-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.list-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* ========================================
