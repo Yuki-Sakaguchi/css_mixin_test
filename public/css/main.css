@@ -1,0 +1,77 @@
+/* ========================================
+    sample
+======================================== */
+.box, .box--device {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-color: black;
+  color: white;
+  border: 1px solid #ccc;
+}
+
+@media screen and (min-width: 781px) and (max-width: 1080px) {
+  .box {
+    background-color: #666;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 780px) {
+  .box {
+    background-color: #aaa;
+    color: black;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .box {
+    background-color: #efefef;
+    color: black;
+  }
+}
+
+@media screen and (min-width: 781px) {
+  .box--device {
+    background-color: red;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .box--device {
+    background-color: blue;
+  }
+}
+
+/* ========================================
+    element
+======================================== */
+@media not screen and (min-width: 781px) and (max-width: 1080px) {
+  .l-elem {
+    display: none;
+  }
+}
+
+@media not screen and (min-width: 481px) and (max-width: 780px) {
+  .m-elem {
+    display: none;
+  }
+}
+
+@media not screen and (max-width: 480px) {
+  .s-elem {
+    display: none;
+  }
+}
+
+@media not screen and (max-width: 780px) {
+  .mb-elem {
+    display: none;
+  }
+}
+
+@media not screen and (min-width: 781px) {
+  .pc-elem {
+    display: none;
+  }
+}

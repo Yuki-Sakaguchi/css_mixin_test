@@ -1,0 +1,20 @@
+{
+  "name": "directory_template",
+  "version": "1.0.0",
+  "description": "フロントエンドの開発に使うディレクトリ構成のテンプレート",
+  "scripts": {
+    "gulp": "./node_modules/.bin/gulp",
+    "watch": "./node_modules/.bin/gulp watch",
+    "webserver": "./node_modules/.bin/gulp webserver",
+    "imagemin": "./node_modules/.bin/gulp imagemin"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-webserver": "^0.9.1"
+  }
+}

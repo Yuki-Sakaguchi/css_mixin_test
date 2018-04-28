@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+// ========================================
+//    break point
+// ========================================
+$BP_L: 1080px; // PC
+$BP_M: 780px;  // TB
+$BP_S: 480px;  // SP
+
+
+// ========================================
+//    mixin
+// ========================================
+// floatの解除
+@mixin clearfix() {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// pcサイズのみ有効のスタイルをつける
+// 引数にfalseを設定すればpcサイズ以外有効になる
+@mixin mq-l($is_pc: true) {
+    @if $is_pc {
+        @media screen and (min-width: $BP_M + 1) and (max-width: $BP_L) {
+            @content;
+        }
+    } @else {
+        @media not screen and (min-width: $BP_M + 1) and (max-width: $BP_L) {
+            @content;
+        }
+    }
+}
+
+// tbサイズのみ有効のスタイルをつける
+// 引数にfalseを設定すればtbサイズ以外有効になる
+@mixin mq-m($is_tb: true) {
+    @if $is_tb {
+        @media screen and (min-width: $BP_S + 1) and (max-width: $BP_M) {
+            @content;
+        }
+    } @else {
+        @media not screen and (min-width: $BP_S + 1) and (max-width: $BP_M) {
+            @content;
+        }
+    }
+}
+
+// spサイズのみ有効のスタイルをつける
+// 引数にfalseを設定すればspサイズ以外有効になる
+@mixin mq-s($is_sp: true) {
+    @if $is_sp {
+        @media screen and (max-width: $BP_S) {
+            @content;
+        }
+    } @else {
+        @media not screen and (max-width: $BP_S) {
+            @content;
+        }
+    }
+}
+
+// mobileサイズのみ有効のスタイルをつける
+// 引数にfalseを設定すればmobileサイズ以外有効になる
+@mixin mq-mb($is_mobile: true) {
+    @if $is_mobile {
+        @media screen and (max-width: $BP_M) {
+            @content;
+        }
+    } @else {
+        @media not screen and (max-width: $BP_M) {
+            @content;
+        }
+    }
+}
+
+// pcサイズのみ有効のスタイルをつける
+// 引数にfalseを設定すればmobileサイズ以外有効になる
+@mixin mq-pc($is_pc: true) {
+    @if $is_pc {
+        @media screen and (min-width: $BP_M + 1) {
+            @content;
+        }
+    } @else {
+        @media not screen and (min-width: $BP_M + 1) {
+            @content;
+        }
+    }
+}
+
+
+
+/* ========================================
+    sample
+======================================== */
+%box {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-color: black;
+    color: white;
+    border: 1px solid #ccc;
+}
+
+.box {
+    @extend %box;
+
+    @include mq-l {
+        background-color: #666;
+    }
+
+    @include mq-m {
+        background-color: #aaa;
+        color: black;
+    }
+
+    @include mq-s {
+        background-color: #efefef;
+        color: black;
+    }
+}
+
+.box--device {
+    @extend %box;
+    
+    @include mq-pc {
+        background-color: red;
+    }
+
+    @include mq-mb {
+        background-color: blue;
+    }
+}
+
+
+/* ========================================
+    element
+======================================== */
+.l-elem {
+    @include mq-l(false) {
+        display: none;
+    }
+}
+
+.m-elem {
+    @include mq-m(false) {
+        display: none;
+    }
+}
+
+.s-elem {
+    @include mq-s(false) {
+        display: none;
+    }
+}
+
+.mb-elem {
+    @include mq-mb(false) {
+        display: none;
+    }
+}
+
+.pc-elem {
+    @include mq-pc(false) {
+        display: none;
+    }
+}
